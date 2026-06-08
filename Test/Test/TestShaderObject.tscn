@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://d4efu2qjyenc3"]
+
+[ext_resource type="PackedScene" uid="uid://7pme4780hv02" path="res://art/models/player/Player.glb" id="1_57rb8"]
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_57rb8"]
+constant = 30.0
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_onswv"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_d7hnq"]
+constant = -5.0
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_5kfv4"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_6g7og"]
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_25csw"]
+function = 0
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_3o7yr"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_onswv"]
+default_input_values = [0, 0.0, 1, 0.5]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_d7hnq"]
+default_input_values = [0, 0.0, 1, 0.5]
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_pfxrw"]
+default_input_values = [0, 0.0, 1, 2.0]
+operator = 5
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_25csw"]
+constant = Color(0.039963312, 0.38, 0.03419999, 1)
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_57rb8"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_d7hnq"]
+input_name = "vertex"
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_57rb8"]
+constant = Color(0.039963312, 0.38, 0.03419999, 1)
+
+[sub_resource type="VisualShader" id="VisualShader_f8kjk"]
+nodes/vertex/0/position = Vector2(480, 13.333333)
+nodes/fragment/0/position = Vector2(2493.3333, 293.33334)
+nodes/fragment/10/node = SubResource("VisualShaderNodeFloatConstant_57rb8")
+nodes/fragment/10/position = Vector2(-40, 786.6667)
+nodes/fragment/11/node = SubResource("VisualShaderNodeInput_onswv")
+nodes/fragment/11/position = Vector2(-213.33333, 933.3333)
+nodes/fragment/12/node = SubResource("VisualShaderNodeFloatConstant_d7hnq")
+nodes/fragment/12/position = Vector2(-120, 1053.3334)
+nodes/fragment/13/node = SubResource("VisualShaderNodeFloatOp_5kfv4")
+nodes/fragment/13/position = Vector2(173.33333, 920)
+nodes/fragment/15/node = SubResource("VisualShaderNodeFloatOp_6g7og")
+nodes/fragment/15/position = Vector2(546.6667, 746.6667)
+nodes/fragment/16/node = SubResource("VisualShaderNodeFloatFunc_25csw")
+nodes/fragment/16/position = Vector2(786.6667, 773.3333)
+nodes/fragment/17/node = SubResource("VisualShaderNodeFloatOp_3o7yr")
+nodes/fragment/17/position = Vector2(240, 586.6667)
+nodes/fragment/19/node = SubResource("VisualShaderNodeFloatOp_onswv")
+nodes/fragment/19/position = Vector2(1053.3334, 693.3333)
+nodes/fragment/20/node = SubResource("VisualShaderNodeFloatOp_d7hnq")
+nodes/fragment/20/position = Vector2(1293.3334, 680)
+nodes/fragment/21/node = SubResource("VisualShaderNodeFloatOp_pfxrw")
+nodes/fragment/21/position = Vector2(1613.3334, 666.6667)
+nodes/fragment/24/node = SubResource("VisualShaderNodeColorConstant_25csw")
+nodes/fragment/24/position = Vector2(1586.6666, 413.33334)
+nodes/fragment/26/node = SubResource("VisualShaderNodeVectorDecompose_57rb8")
+nodes/fragment/26/position = Vector2(-93.333336, 440)
+nodes/fragment/27/node = SubResource("VisualShaderNodeInput_d7hnq")
+nodes/fragment/27/position = Vector2(-480, 533.3333)
+nodes/fragment/connections = PackedInt32Array(10, 0, 17, 1, 11, 0, 13, 0, 12, 0, 13, 1, 17, 0, 15, 0, 13, 0, 15, 1, 15, 0, 16, 0, 16, 0, 19, 0, 19, 0, 20, 0, 20, 0, 21, 0, 21, 0, 0, 1, 24, 0, 0, 0, 27, 0, 26, 0, 26, 1, 17, 0)
+nodes/light/2/node = SubResource("VisualShaderNodeColorConstant_57rb8")
+nodes/light/2/position = Vector2(120, 173.33333)
+nodes/light/connections = PackedInt32Array(2, 0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvysi"]
+render_priority = 0
+shader = SubResource("VisualShader_f8kjk")
+
+[node name="TestShaderObject" type="Node3D" unique_id=1213435067]
+
+[node name="Player" parent="." unique_id=1309855367 instance=ExtResource("1_57rb8")]
+
+[node name="char1" parent="Player/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1309855367, 1213526966) index="0" unique_id=1331252797]
+material_override = SubResource("ShaderMaterial_hvysi")
+
+[editable path="Player"]

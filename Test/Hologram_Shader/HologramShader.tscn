@@ -1,3 +1,16 @@
 [gd_scene format=3 uid="uid://dhywsa85krtw4"]
 
+[ext_resource type="Shader" uid="uid://fav2v4aypiai" path="res://Test/Hologram_Shader/HologramShader.tres" id="1_s2htv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bxy2b"]
+render_priority = 0
+shader = ExtResource("1_s2htv")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nbnni"]
+material = SubResource("ShaderMaterial_bxy2b")
+
 [node name="HologramShader" type="Node3D" unique_id=1863031074]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=430226093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0287724, 0)
+mesh = SubResource("CylinderMesh_nbnni")
